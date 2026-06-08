@@ -1,25 +1,39 @@
 # HTML Artifact Report Skill
 
-> Agent skill for creating warm editorial HTML reports for humans plus JSON manifests for agents.
+> Portable agent skill for creating warm editorial single-file HTML reports for humans plus JSON manifests for agents.
 
-This project defines a strict dual-output contract:
+This repository defines one strict dual-output contract:
 
-- `artifact.html` is the human-facing standalone report.
-- `artifact.json` is the agent-facing manifest with sections, components, claims, evidence, source hashes, verification, and limitations.
+- `artifact.html`: human-facing standalone report.
+- `artifact.json`: agent-facing manifest with sections, components, claims, evidence, source hashes, verification, and limitations.
 
-The goal is to stop agents from producing Markdown walls or unauditable pretty HTML. Reports must be readable by humans and inspectable by future agents.
+Use this skill when an agent is about to produce a substantial report, review, research summary, implementation plan, decision brief, or audit artifact.
 
-## Start here
+## Start Here
 
-- [README](README.md): project positioning, install, quickstart, examples.
-- [SPEC](SPEC.md): public artifact contract.
+- [README](README.md): positioning, install, examples, public contract.
+- [Agent installation guide](docs/agents.md): Claude Code, Codex, Cursor, Gemini CLI, DeepSeek-backed agents, and generic agents.
 - [SKILL](SKILL.md): runtime instructions for coding agents.
-- [Agent guide](AGENTS.md): repository instructions for agents.
+- [SPEC](SPEC.md): complete artifact contract.
+- [AGENTS](AGENTS.md): repository instructions for agents editing this repo.
 
-## Contract files
+## Install
+
+- [Agent install](docs/agents.md#recommended-npx-skills): choose one client, for example `--agent claude-code` or `--agent codex`.
+- [Claude Code](docs/agents.md#claude-code): install and first prompt.
+- [Codex](docs/agents.md#codex): install and first prompt.
+- [Cursor](docs/agents.md#cursor): install and fallback prompt.
+- [Gemini CLI](docs/agents.md#gemini-cli): install and one-off prompt.
+- [DeepSeek-backed agents](docs/agents.md#deepseek-backed-agents): use the host client; DeepSeek is the model provider.
+
+## Contract Files
 
 - [JSON schema](contract/artifact-report.schema.json): validates `artifact.json`.
 - [Example manifest](contract/artifact-report.example.json): minimal valid manifest shape.
+- [Desktop HTML template](templates/desktop-report-template.html): canonical warm editorial baseline.
+- [Component catalog](components/report-components.md): allowed components.
+- [Anti-slop rules](references/anti-slop.md): visual anti-patterns.
+- [Style principles](references/style-principles.md): report profile rules.
 
 ## Examples
 
@@ -34,9 +48,9 @@ The goal is to stop agents from producing Markdown walls or unauditable pretty H
 - [JSON checker](scripts/check_artifact_json.py): validates schema, source hashes, and HTML/JSON alignment.
 - [Example checker](scripts/check_examples.py): runs positive and negative fixtures.
 
-## Design references
+## Multilingual Quickstarts
 
-- [Component catalog](components/report-components.md): allowed report components.
-- [Anti-slop rules](references/anti-slop.md): visual anti-patterns.
-- [Style principles](references/style-principles.md): canonical warm editorial profile.
-
+- [Chinese](README.zh-CN.md)
+- [Spanish](docs/i18n/es.md)
+- [Japanese](docs/i18n/ja.md)
+- [French](docs/i18n/fr.md)
