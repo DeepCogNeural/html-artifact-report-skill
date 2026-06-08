@@ -1,12 +1,14 @@
-# HTML Artifact Report Skill
+# HTML Report Skill for AI Agents
 
-给人看的 HTML 报告，给 agent 看的 JSON manifest。
+给人看的 HTML artifact，给 agent 看的 JSON manifest。
 
-这个仓库提供一个可复用 agent skill：把重要笔记、研究、设计评审、决策 memo 转成两份对齐的文件：
+这个仓库提供一个可复用 agent skill：把重要笔记、Markdown、研究、设计评审、决策 memo 转成两份对齐的文件：
 
 - `artifact.html`：暖色 editorial 风格的单文件 HTML 报告，方便人读。
 - `artifact.json`：结构化 manifest，方便 agent 复查、diff、复用。
 - checker 会强制 HTML 的 `data-section-id` / `data-component-id` 和 JSON contract 对齐。
+
+不同用户可能会搜：HTML report skill、HTML artifact skill、agent report generator、Markdown-to-HTML report、JSON manifest report。这里都指向同一个 contract。
 
 ## 安装
 

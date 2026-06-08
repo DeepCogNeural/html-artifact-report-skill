@@ -1,13 +1,13 @@
-# HTML Artifact Report Skill
+# HTML Report Skill for AI Agents
 
-> Portable agent skill for creating warm editorial single-file HTML reports for humans plus JSON manifests for agents.
+> Portable agent skill for creating warm editorial HTML artifacts for humans plus JSON manifests for agents.
 
 This repository defines one strict dual-output contract:
 
 - `artifact.html`: human-facing standalone report.
 - `artifact.json`: agent-facing manifest with sections, components, claims, evidence, source hashes, verification, and limitations.
 
-Use this skill when an agent is about to produce a substantial report, review, research summary, implementation plan, decision brief, or audit artifact.
+Use this skill when an agent is about to produce a substantial report, review, research summary, implementation plan, decision brief, audit artifact, Markdown-to-HTML report, or JSON-backed report manifest.
 
 ## Start Here
 

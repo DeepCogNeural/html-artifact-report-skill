@@ -1,4 +1,4 @@
-# Agent Installation Guide
+# Install HTML Report Skill for AI Agents
 
 This guide shows how to install or use `html-artifact-report` across common coding-agent setups.
 

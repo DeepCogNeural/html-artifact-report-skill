@@ -1,5 +1,26 @@
 # Current Task
 
+Goal: tune naming and discovery terms for `html-artifact-report-skill`.
+
+## Plan
+
+- [x] Keep stable repo slug and skill id.
+- [x] Shorten public name to `HTML Report Skill for AI Agents`.
+- [x] Add natural search-entry terms: HTML artifact skill, agent report generator, Markdown-to-HTML report, JSON manifest report.
+- [x] Update README, Chinese README, `llms.txt`, `SKILL.md`, install doc title, hero source, and GitHub metadata.
+- [x] Run local checks and regenerate hero image.
+- [ ] Commit, push, and verify GitHub.
+
+## Review Notes
+
+- Do not rename the repository or skill id in this pass; current slug already captures `html`, `artifact`, `report`, and `skill`.
+- Put query terms in the first screen and metadata, not as spammy keyword stuffing.
+- Checks passed: examples, unit tests, markdown local links, `git diff --check`, generated hero image inspection, and GitHub metadata readback.
+
+---
+
+# Previous Task
+
 Goal: polish the public GitHub packaging for `html-artifact-report-skill`.
 
 ## Plan

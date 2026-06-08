@@ -1,11 +1,11 @@
 ---
 name: html-artifact-report
-description: Create warm editorial single-file HTML reports with paired JSON manifests for agent-readable audit and reuse.
+description: Create HTML report artifacts from notes or Markdown with paired JSON manifests for AI-agent audit and reuse.
 category: reporting
-tags: ["html", "report", "artifact", "json", "agent", "evidence"]
+tags: ["html", "report", "artifact", "json", "manifest", "markdown", "ai-agent", "evidence"]
 ---
 
-# HTML Artifact Report
+# HTML Report Artifact
 
 Use this skill when a substantial answer, review, analysis, decision memo, or research summary should become a durable artifact instead of a long chat response.
 
