@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="artifact-contract" content="artifact-report.v1">
+<meta name="artifact-id" content="cjk-report">
+<title>中文报告示例</title>
+<style>
+  :root { --ivory:#FAF9F5; --slate:#141413; --clay:#D97757; --oat:#E3DACC; --olive:#788C5D; --gray-100:#F0EEE6; --gray-300:#D1CFC5; --gray-500:#87867F; --gray-700:#3D3D3A; --white:#FFFFFF; --serif:ui-serif, Georgia, "Times New Roman", serif; --sans:system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; --mono:ui-monospace, "SF Mono", Menlo, Monaco, monospace; }
+  * { box-sizing:border-box; }
+  body { margin:0; padding:56px 32px 120px; background:var(--ivory); color:var(--gray-700); font-family:var(--sans); font-size:15px; line-height:1.62; }
+  .page { max-width:1180px; margin:0 auto; }
+  header { margin-bottom:10px; }
+  .eyebrow { color:var(--gray-500); font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase; margin-bottom:12px; }
+  h1,h2,h3 { color:var(--slate); font-family:var(--serif); font-weight:500; line-height:1.12; }
+  h1 { margin:0 0 18px; font-size:38px; }
+  h2 { margin:0; font-size:26px; }
+  h3 { margin:0 0 8px; font-size:22px; }
+  p { margin:0 0 12px; }
+  code { background:var(--gray-100); border-radius:4px; color:var(--slate); font-family:var(--mono); font-size:.92em; padding:1px 5px; }
+  .prompt-box,.card,.table-wrap,details { background:var(--white); border:1.5px solid var(--gray-300); border-radius:12px; }
+  .prompt-box { padding:16px 20px; font-size:14.5px; }
+  .tldr { background:var(--slate); border-radius:12px; color:var(--ivory); margin:10px 0 34px; padding:22px 26px; }
+  .summary { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:60px; }
+  .card { padding:18px 20px; }
+  .k { color:var(--gray-500); font-family:var(--sans); font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; }
+  .v { color:var(--slate); font-size:18px; font-weight:700; margin-top:6px; }
+  section { border-top:1.5px solid var(--gray-300); margin-top:52px; padding-top:28px; }
+  .sec-head { display:grid; grid-template-columns:48px minmax(0,1fr); gap:14px; margin-bottom:18px; }
+  .num { align-items:center; background:var(--oat); border-radius:10px; color:var(--slate); display:flex; font-family:var(--mono); font-weight:700; height:38px; justify-content:center; width:42px; }
+  .diagram { background:var(--white); border:1.5px solid var(--gray-300); border-radius:12px; overflow-x:auto; padding:18px; }
+  .diagram text { font-family:var(--sans); }
+  .table-wrap { overflow-x:auto; }
+  table { border-collapse:collapse; min-width:760px; width:100%; }
+  th,td { border-bottom:1px solid var(--gray-300); padding:11px 12px; text-align:left; vertical-align:top; }
+  th { background:var(--gray-100); color:var(--gray-700); font-size:12px; text-transform:uppercase; }
+  details { margin:14px 0; padding:14px 16px; }
+  summary { color:var(--clay); cursor:pointer; font-weight:700; }
+  pre { background:var(--slate); border-radius:10px; color:var(--ivory); overflow-x:auto; padding:14px 16px; }
+  button[data-copy] { background:var(--slate); border:0; border-radius:7px; color:var(--ivory); cursor:pointer; font:700 12px var(--sans); padding:8px 10px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="eyebrow">Skill · CJK report · 2026-06-08</div>
+    <h1>中文报告示例</h1>
+    <div class="prompt-box">这个示例证明：正文可以是中文，机器契约仍然使用稳定的英文 id。</div>
+  </header>
+  <main>
+    <div class="tldr" data-component-id="cmp-tldr"><strong>TL;DR:</strong> 可以。HTML 给人阅读，JSON 给 agent 复查；中文内容不需要翻译成英文。</div>
+    <div class="summary" aria-label="summary" data-component-id="cmp-summary">
+      <div class="card"><div class="k">结论</div><div class="v">可用</div></div>
+      <div class="card"><div class="k">正文</div><div class="v">中文</div></div>
+      <div class="card"><div class="k">IDs</div><div class="v">英文</div></div>
+      <div class="card"><div class="k">检查</div><div class="v">同一套</div></div>
+    </div>
+    <section data-section-id="decision">
+      <div class="sec-head"><div class="num">01</div><div><h2>结论</h2><p>默认模板可以承载中文报告，同时保留可复查的机器 id。</p></div></div>
+      <div class="diagram" data-component-id="cmp-flow"><svg viewBox="0 0 760 150" role="img" aria-label="中文报告双产物流"><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#D97757"></path></marker></defs><rect x="28" y="42" width="160" height="64" rx="10" fill="#FFFFFF" stroke="#D1CFC5"></rect><text x="54" y="78" font-size="15" font-weight="700">中文输入</text><line x1="188" y1="74" x2="292" y2="74" stroke="#D97757" stroke-width="2" marker-end="url(#arrow)"></line><rect x="294" y="42" width="170" height="64" rx="10" fill="#FFFFFF" stroke="#D1CFC5"></rect><text x="320" y="78" font-size="15" font-weight="700">JSON manifest</text><line x1="464" y1="74" x2="566" y2="74" stroke="#D97757" stroke-width="2" marker-end="url(#arrow)"></line><rect x="568" y="42" width="160" height="64" rx="10" fill="#FFF7F3" stroke="#D97757"></rect><text x="594" y="78" font-size="15" font-weight="700">中文 HTML</text></svg></div>
+    </section>
+    <section data-section-id="evidence">
+      <div class="sec-head"><div class="num">02</div><div><h2>证据</h2><p>字体、ID 和 checker 都不依赖英文正文。</p></div></div>
+      <details data-component-id="cmp-raw-evidence"><summary>原始证据表</summary>
+        <div class="table-wrap" data-component-id="cmp-evidence-table"><table><thead><tr><th>项目</th><th>结果</th><th>意义</th></tr></thead><tbody><tr><td>字体</td><td>系统字体</td><td>能显示中文</td></tr><tr><td>机器 id</td><td>稳定英文</td><td>避免跨语言解析问题</td></tr><tr><td>checker</td><td>结构检查</td><td>不依赖英文正文</td></tr></tbody></table></div>
+      </details>
+    </section>
+    <section data-section-id="verification">
+      <div class="sec-head"><div class="num">03</div><div><h2>Verification</h2><p>这个中文示例仍然使用同一套结构和契约检查。</p></div></div>
+      <details data-component-id="cmp-commands"><summary>复查命令</summary><button data-copy="#commands">Copy</button><pre id="commands">python3 scripts/check_artifact_json.py examples/cjk-report/artifact.json --html examples/cjk-report/artifact.html</pre></details>
+    </section>
+    <section data-section-id="next-action">
+      <div class="sec-head"><div class="num">04</div><div><h2>Next Action</h2><p>更复杂的中文报告仍需要人工视觉验收。</p></div></div>
+      <div class="card" data-component-id="cmp-limitations"><div class="k">Limitations</div><p>静态检查只能证明结构正确，不能证明每一处中文换行都最优。</p></div>
+    </section>
+  </main>
+</div>
+<script>document.querySelectorAll("button[data-copy]").forEach((button)=>{button.addEventListener("click",async()=>{const target=document.querySelector(button.getAttribute("data-copy"));if(!target)return;await navigator.clipboard.writeText(target.textContent.trim());const old=button.textContent;button.textContent="Copied";setTimeout(()=>{button.textContent=old;},1200);});});</script>
+</body>
+</html>
+

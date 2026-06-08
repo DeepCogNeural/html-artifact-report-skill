@@ -1,0 +1,69 @@
+{
+  "schema_version": "artifact-report.v1",
+  "artifact_id": "drift-fixture",
+  "title": "Drift Fixture",
+  "template_version": "desktop-report-template.v1",
+  "language": "en",
+  "source_hashes": [
+    {
+      "path": "examples/executive-decision-brief/input.md",
+      "sha256": "5533f6299b67e486c16b839714aaf42161ffacbf859fd2e414580a00589d366f"
+    }
+  ],
+  "sections": [
+    {
+      "id": "decision",
+      "title": "Decision",
+      "summary": "A section that exists."
+    },
+    {
+      "id": "missing-section",
+      "title": "Missing Section",
+      "summary": "This section is absent from HTML."
+    }
+  ],
+  "components": [
+    {
+      "id": "cmp-tldr",
+      "type": "tldr",
+      "section_id": "decision",
+      "purpose": "Existing component."
+    },
+    {
+      "id": "cmp-missing",
+      "type": "card",
+      "section_id": "missing-section",
+      "purpose": "This component is absent from HTML."
+    }
+  ],
+  "claims": [
+    {
+      "id": "claim-drift",
+      "text": "This manifest points to HTML nodes that do not exist.",
+      "status": "unsupported",
+      "evidence_ids": ["ev-drift"]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ev-drift",
+      "kind": "fixture",
+      "summary": "This fixture uses a valid source hash while intentionally drifting IDs.",
+      "source": "examples/executive-decision-brief/input.md"
+    }
+  ],
+  "verification": {
+    "status": "failed",
+    "checked_at": "2026-06-08",
+    "checks": [
+      {
+        "name": "cross-check",
+        "status": "failed",
+        "detail": "Expected to fail because HTML is missing IDs."
+      }
+    ]
+  },
+  "limitations": [
+    "This fixture is intentionally invalid across files."
+  ]
+}

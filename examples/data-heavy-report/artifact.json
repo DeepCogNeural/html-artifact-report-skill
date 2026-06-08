@@ -1,0 +1,109 @@
+{
+  "schema_version": "artifact-report.v1",
+  "artifact_id": "data-heavy-report",
+  "title": "Weekly Metrics Review",
+  "template_version": "desktop-report-template.v1",
+  "language": "en",
+  "source_hashes": [
+    {
+      "path": "examples/data-heavy-report/input.md",
+      "sha256": "999114ca6bf6dd9cf9b57459f7ba75dee45fdad44cd1cff3fc8931c804108bf5"
+    }
+  ],
+  "sections": [
+    {
+      "id": "decision",
+      "title": "Decision",
+      "summary": "Keep the three checker layers."
+    },
+    {
+      "id": "evidence",
+      "title": "Evidence",
+      "summary": "Each layer catches a distinct class of failure."
+    },
+    {
+      "id": "verification",
+      "title": "Verification",
+      "summary": "Example checks exercise positive and negative cases."
+    },
+    {
+      "id": "next-action",
+      "title": "Next Action",
+      "summary": "Run all checks in CI."
+    }
+  ],
+  "components": [
+    {
+      "id": "cmp-tldr",
+      "type": "tldr",
+      "section_id": "decision",
+      "purpose": "Summarize the metrics decision."
+    },
+    {
+      "id": "cmp-summary",
+      "type": "summary",
+      "section_id": "decision",
+      "purpose": "Show the four top metrics."
+    },
+    {
+      "id": "cmp-flow",
+      "type": "diagram",
+      "section_id": "decision",
+      "purpose": "Explain the validation layers."
+    },
+    {
+      "id": "cmp-evidence-table",
+      "type": "table",
+      "section_id": "evidence",
+      "purpose": "Summarize checker coverage."
+    },
+    {
+      "id": "cmp-raw-evidence",
+      "type": "folded_evidence",
+      "section_id": "evidence",
+      "purpose": "Fold the raw metrics table."
+    },
+    {
+      "id": "cmp-commands",
+      "type": "command",
+      "section_id": "verification",
+      "purpose": "Provide repeatable checks."
+    },
+    {
+      "id": "cmp-limitations",
+      "type": "card",
+      "section_id": "next-action",
+      "purpose": "Record the limits of static checks."
+    }
+  ],
+  "claims": [
+    {
+      "id": "claim-three-layers",
+      "text": "HTML, JSON, and cross-check validation catch different failure modes.",
+      "status": "supported",
+      "evidence_ids": ["ev-metrics-table"]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ev-metrics-table",
+      "kind": "table",
+      "summary": "The input table maps each checker to the failure mode it catches.",
+      "source": "examples/data-heavy-report/input.md"
+    }
+  ],
+  "verification": {
+    "status": "passed",
+    "checked_at": "2026-06-08",
+    "checks": [
+      {
+        "name": "example checks",
+        "status": "passed",
+        "detail": "Expected to pass scripts/check_examples.py."
+      }
+    ]
+  },
+  "limitations": [
+    "Static checks do not replace a visual browser review for final public pages."
+  ]
+}

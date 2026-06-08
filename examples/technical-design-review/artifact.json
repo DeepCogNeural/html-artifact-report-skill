@@ -1,0 +1,109 @@
+{
+  "schema_version": "artifact-report.v1",
+  "artifact_id": "technical-design-review",
+  "title": "Artifact Contract Design Review",
+  "template_version": "desktop-report-template.v1",
+  "language": "en",
+  "source_hashes": [
+    {
+      "path": "examples/technical-design-review/input.md",
+      "sha256": "7e12e8865779adef321bb1ca2776ad04b330557c56f416be17a9aeede2adbc93"
+    }
+  ],
+  "sections": [
+    {
+      "id": "decision",
+      "title": "Decision",
+      "summary": "Make HTML/JSON ID alignment mandatory."
+    },
+    {
+      "id": "evidence",
+      "title": "Evidence",
+      "summary": "A four-step flow prevents drift."
+    },
+    {
+      "id": "verification",
+      "title": "Verification",
+      "summary": "Schema and cross-check scripts verify the contract."
+    },
+    {
+      "id": "next-action",
+      "title": "Next Action",
+      "summary": "Keep contract fields stable in v1."
+    }
+  ],
+  "components": [
+    {
+      "id": "cmp-tldr",
+      "type": "tldr",
+      "section_id": "decision",
+      "purpose": "State the contract design decision."
+    },
+    {
+      "id": "cmp-summary",
+      "type": "summary",
+      "section_id": "decision",
+      "purpose": "Summarize decision, risk, verification, and next step."
+    },
+    {
+      "id": "cmp-flow",
+      "type": "diagram",
+      "section_id": "decision",
+      "purpose": "Show the artifact generation flow."
+    },
+    {
+      "id": "cmp-evidence-table",
+      "type": "table",
+      "section_id": "evidence",
+      "purpose": "Map design steps to drift controls."
+    },
+    {
+      "id": "cmp-raw-evidence",
+      "type": "folded_evidence",
+      "section_id": "evidence",
+      "purpose": "Fold the source design notes."
+    },
+    {
+      "id": "cmp-commands",
+      "type": "command",
+      "section_id": "verification",
+      "purpose": "Provide validation commands."
+    },
+    {
+      "id": "cmp-limitations",
+      "type": "card",
+      "section_id": "next-action",
+      "purpose": "Record compatibility limits."
+    }
+  ],
+  "claims": [
+    {
+      "id": "claim-id-alignment",
+      "text": "Mandatory ID alignment prevents silent drift between HTML and JSON.",
+      "status": "supported",
+      "evidence_ids": ["ev-design-flow"]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ev-design-flow",
+      "kind": "design",
+      "summary": "The input defines a flow that writes JSON first and renders HTML with matching IDs.",
+      "source": "examples/technical-design-review/input.md"
+    }
+  ],
+  "verification": {
+    "status": "passed",
+    "checked_at": "2026-06-08",
+    "checks": [
+      {
+        "name": "cross-check",
+        "status": "passed",
+        "detail": "Expected to pass HTML/JSON ID alignment."
+      }
+    ]
+  },
+  "limitations": [
+    "The contract does not specify every possible future component type."
+  ]
+}
