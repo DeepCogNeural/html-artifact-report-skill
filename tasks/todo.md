@@ -9,7 +9,7 @@ Goal: tune naming and discovery terms for `html-artifact-report-skill`.
 - [x] Add natural search-entry terms: HTML artifact skill, agent report generator, Markdown-to-HTML report, JSON manifest report.
 - [x] Update README, Chinese README, `llms.txt`, `SKILL.md`, install doc title, hero source, and GitHub metadata.
 - [x] Run local checks and regenerate hero image.
-- [ ] Commit, push, and verify GitHub.
+- [x] Commit, push, and verify GitHub.
 
 ## Review Notes
 
