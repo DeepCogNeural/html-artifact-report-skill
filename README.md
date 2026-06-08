@@ -1,26 +1,38 @@
 # HTML Report Skill for AI Agents
 
+<p>
+  <a href="README.md"><kbd>English</kbd></a>
+  <a href="README.zh-CN.md"><kbd>简体中文</kbd></a>
+  <a href="docs/i18n/es.md"><kbd>Español</kbd></a>
+  <a href="docs/i18n/ja.md"><kbd>日本語</kbd></a>
+  <a href="docs/i18n/fr.md"><kbd>Français</kbd></a>
+</p>
+
 [![CI](https://github.com/DeepCogNeural/html-artifact-report-skill/actions/workflows/ci.yml/badge.svg)](https://github.com/DeepCogNeural/html-artifact-report-skill/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Contract](https://img.shields.io/badge/contract-artifact--report.v1-D97757.svg)](SPEC.md)
 
-Readable HTML artifacts for humans. Auditable JSON manifests for agents.
+Turn notes or Markdown into a readable standalone HTML report plus a schema-checked JSON manifest.
 
-`html-artifact-report` is a portable agent skill for Claude Code, Codex, Cursor, Gemini CLI, and DeepSeek-backed clients. It turns notes, Markdown, reviews, research, and decision memos into two aligned files:
+Use it when an agent output is too important to leave as chat or a Markdown wall: decision briefs, technical reviews, research reports, incident writeups, strategy memos, and data-heavy summaries.
+
+Why this exists: people need a report they will actually read; future agents need a manifest they can verify without scraping prose. `html-artifact-report` gives both outputs from one contract.
+
+It is a portable skill for Claude Code, Codex, Cursor, Gemini CLI, DeepSeek-backed clients, and any file-reading coding agent:
 
 - `artifact.html`: a warm editorial single-file report that people can read.
 - `artifact.json`: a structured manifest that future agents can verify, diff, and reuse.
 - Checker-enforced alignment: HTML `data-section-id` / `data-component-id` values must match the JSON contract.
 
-People may search for this as an HTML report skill, HTML artifact skill, agent report generator, Markdown-to-HTML report, or JSON manifest report. The contract is the same.
+Search terms this repo intentionally covers: HTML report skill, HTML artifact skill, agent report generator, Markdown-to-HTML report, JSON manifest report.
 
 ![HTML Artifact Report Skill preview](docs/assets/hero-preview.png)
 
 ## Why Agents Use It
 
-Markdown is a good source format. HTML is a better reading surface. JSON is a better agent interface.
+Markdown is a good source format, but it is a poor final surface for substantial work. Pretty HTML alone is also not enough, because the next agent has to scrape and guess.
 
-This skill keeps each format in its proper job. The human gets a polished standalone report. The agent gets a schema-validated manifest with sections, components, claims, evidence, source hashes, verification, and limitations.
+This skill keeps each format in its proper job. Markdown can be input. HTML is the reading surface. JSON is the agent interface. The manifest records sections, components, claims, evidence, source hashes, verification, and limitations.
 
 The visual style is inspired by the broader HTML artifact workflow: answer first, warm editorial typography, dense but readable layouts, folded raw evidence, and diagrams/tables where they help. This is a clean-room implementation; no third-party templates, screenshots, CSS, or assets are copied.
 

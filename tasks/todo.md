@@ -1,5 +1,25 @@
 # Current Task
 
+Goal: make the README first screen explain the product and language navigation immediately.
+
+## Plan
+
+- [x] Add top language jump labels to README files and localized quickstarts.
+- [x] Rewrite the README first screen around what it does, who needs it, when to use it, and why to switch.
+- [x] Update Chinese README with the same sharper positioning.
+- [x] Update hero preview copy and regenerate the 2400x1400 image.
+- [x] Run checks, commit, push, and verify GitHub rendering.
+
+## Review Notes
+
+- Keep the first screen concise: one-sentence purpose, use cases, reason to switch, then the HTML/JSON contract.
+- Language links should stay as direct local links, not a separate docs system.
+- Checks passed: examples, unit tests, markdown local links, `git diff --check`, hero image inspection, and GitHub metadata readback.
+
+---
+
+# Previous Task
+
 Goal: tune naming and discovery terms for `html-artifact-report-skill`.
 
 ## Plan

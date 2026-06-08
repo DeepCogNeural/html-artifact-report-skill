@@ -1,5 +1,13 @@
 # HTML Artifact Report Skill - Démarrage rapide
 
+<p>
+  <a href="../../README.md"><kbd>English</kbd></a>
+  <a href="../../README.zh-CN.md"><kbd>简体中文</kbd></a>
+  <a href="es.md"><kbd>Español</kbd></a>
+  <a href="ja.md"><kbd>日本語</kbd></a>
+  <a href="fr.md"><kbd>Français</kbd></a>
+</p>
+
 Ce skill aide un agent à produire deux fichiers alignés:
 
 - `artifact.html`: un rapport HTML autonome pour les lecteurs humains.
