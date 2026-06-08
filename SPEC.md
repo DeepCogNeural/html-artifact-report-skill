@@ -22,7 +22,8 @@ The files must describe the same report. The HTML is optimized for a human reade
 - Include `<meta name="artifact-id" content="...">` matching JSON `artifact_id`.
 - Include readable report content, not a raw JSON dump.
 - Use `data-section-id` for every major `<section>`.
-- Use `data-component-id` for every meaningful visual, table, callout, evidence block, or command block referenced by JSON.
+- Use `data-component-id` for every meaningful visual, table, callout, evidence block, or command block.
+- Register every HTML `data-section-id` and `data-component-id` in JSON exactly once.
 - Include a reader-facing verification or limitations section.
 
 ## JSON contract
@@ -37,7 +38,12 @@ Required fields:
   "artifact_id": "stable-kebab-case-id",
   "title": "Report title",
   "template_version": "desktop-report-template.v1",
-  "source_hashes": [],
+  "source_hashes": [
+    {
+      "path": "notes.md",
+      "sha256": "64-character-lowercase-sha256"
+    }
+  ],
   "sections": [],
   "components": [],
   "claims": [],
@@ -63,6 +69,12 @@ Each `components[].id` must appear in HTML as:
 
 Other element types are allowed, but the `data-component-id` must be present.
 
+The alignment is bidirectional:
+
+- JSON IDs missing from HTML fail validation.
+- HTML IDs missing from JSON fail validation.
+- Duplicate IDs fail validation on either side.
+
 ## Claims and evidence
 
 Use `claims[]` for statements that matter to the report decision.
@@ -82,6 +94,8 @@ Each evidence item should include:
 - `kind`
 - `summary`
 - `source`
+
+If `source` points to a local file, that file must also appear in `source_hashes`.
 
 ## Verification
 
@@ -104,4 +118,3 @@ Do not hide uncertainty in the JSON.
 ## Generated artifact license note
 
 Generated HTML may contain template HTML/CSS from this repository. Users may distribute generated reports under their own content license as long as they comply with this repository's MIT license for included template code.
-

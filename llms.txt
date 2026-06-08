@@ -1,0 +1,42 @@
+# HTML Artifact Report Skill
+
+> Agent skill for creating warm editorial HTML reports for humans plus JSON manifests for agents.
+
+This project defines a strict dual-output contract:
+
+- `artifact.html` is the human-facing standalone report.
+- `artifact.json` is the agent-facing manifest with sections, components, claims, evidence, source hashes, verification, and limitations.
+
+The goal is to stop agents from producing Markdown walls or unauditable pretty HTML. Reports must be readable by humans and inspectable by future agents.
+
+## Start here
+
+- [README](README.md): project positioning, install, quickstart, examples.
+- [SPEC](SPEC.md): public artifact contract.
+- [SKILL](SKILL.md): runtime instructions for coding agents.
+- [Agent guide](AGENTS.md): repository instructions for agents.
+
+## Contract files
+
+- [JSON schema](contract/artifact-report.schema.json): validates `artifact.json`.
+- [Example manifest](contract/artifact-report.example.json): minimal valid manifest shape.
+
+## Examples
+
+- [Executive decision brief](examples/executive-decision-brief/): compact decision memo.
+- [Data-heavy report](examples/data-heavy-report/): folded evidence and tables.
+- [Technical design review](examples/technical-design-review/): ID alignment example.
+- [CJK report](examples/cjk-report/): Chinese report with stable machine IDs.
+
+## Checkers
+
+- [HTML checker](scripts/check_html_artifact.py): validates report structure and anti-slop rules.
+- [JSON checker](scripts/check_artifact_json.py): validates schema, source hashes, and HTML/JSON alignment.
+- [Example checker](scripts/check_examples.py): runs positive and negative fixtures.
+
+## Design references
+
+- [Component catalog](components/report-components.md): allowed report components.
+- [Anti-slop rules](references/anti-slop.md): visual anti-patterns.
+- [Style principles](references/style-principles.md): canonical warm editorial profile.
+
