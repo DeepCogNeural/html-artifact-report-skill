@@ -1,0 +1,119 @@
+{
+  "schema_version": "artifact-report.v1",
+  "artifact_id": "executive-decision-brief",
+  "title": "Adopt the HTML Artifact Report Skill",
+  "template_version": "desktop-report-template.v1",
+  "language": "en",
+  "source_hashes": [
+    {
+      "path": "examples/executive-decision-brief/input.md",
+      "sha256": "5533f6299b67e486c16b839714aaf42161ffacbf859fd2e414580a00589d366f"
+    },
+    {
+      "path": "scripts/check_examples.py",
+      "sha256": "5ea67303a5e7e6a55f325cbf0c92c6397e8502067b825aaf9e28325023faf1f7"
+    }
+  ],
+  "sections": [
+    {
+      "id": "decision",
+      "title": "Decision",
+      "summary": "Ship v1 as a standalone clean-room skill repository."
+    },
+    {
+      "id": "evidence",
+      "title": "Evidence",
+      "summary": "The scope, contract, and checker are narrow enough for v1."
+    },
+    {
+      "id": "verification",
+      "title": "Verification",
+      "summary": "The example is validated by repository checkers."
+    },
+    {
+      "id": "next-action",
+      "title": "Next Action",
+      "summary": "Initialize the repository and publish after review."
+    }
+  ],
+  "components": [
+    {
+      "id": "cmp-tldr",
+      "type": "tldr",
+      "section_id": "decision",
+      "purpose": "State the executive decision first."
+    },
+    {
+      "id": "cmp-summary",
+      "type": "summary",
+      "section_id": "decision",
+      "purpose": "Expose decision, evidence, risk, and next action."
+    },
+    {
+      "id": "cmp-flow",
+      "type": "diagram",
+      "section_id": "decision",
+      "purpose": "Show how source notes become aligned artifacts."
+    },
+    {
+      "id": "cmp-evidence-table",
+      "type": "table",
+      "section_id": "evidence",
+      "purpose": "Summarize the evidence supporting v1 scope."
+    },
+    {
+      "id": "cmp-raw-evidence",
+      "type": "folded_evidence",
+      "section_id": "evidence",
+      "purpose": "Keep raw notes available without crowding the report."
+    },
+    {
+      "id": "cmp-commands",
+      "type": "command",
+      "section_id": "verification",
+      "purpose": "Provide repeatable local checks."
+    },
+    {
+      "id": "cmp-limitations",
+      "type": "card",
+      "section_id": "next-action",
+      "purpose": "State residual launch risk."
+    }
+  ],
+  "claims": [
+    {
+      "id": "claim-v1-scope",
+      "text": "The v1 scope is narrow enough to publish as a skill-first repository.",
+      "status": "supported",
+      "evidence_ids": ["ev-input-notes", "ev-checkers"]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ev-input-notes",
+      "kind": "source",
+      "summary": "The input recommends a standalone clean-room MIT repository.",
+      "source": "examples/executive-decision-brief/input.md"
+    },
+    {
+      "id": "ev-checkers",
+      "kind": "command",
+      "summary": "Repository scripts check HTML, JSON, and cross-file ID alignment.",
+      "source": "scripts/check_examples.py"
+    }
+  ],
+  "verification": {
+    "status": "passed",
+    "checked_at": "2026-06-08",
+    "checks": [
+      {
+        "name": "example checks",
+        "status": "passed",
+        "detail": "Expected to pass scripts/check_examples.py."
+      }
+    ]
+  },
+  "limitations": [
+    "This is a static example, not a live publishing review."
+  ]
+}

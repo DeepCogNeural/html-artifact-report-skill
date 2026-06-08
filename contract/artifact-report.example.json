@@ -1,0 +1,56 @@
+{
+  "schema_version": "artifact-report.v1",
+  "artifact_id": "example-artifact-report",
+  "title": "Example Artifact Report",
+  "template_version": "desktop-report-template.v1",
+  "language": "en",
+  "source_hashes": [
+    {
+      "path": "examples/executive-decision-brief/input.md",
+      "sha256": "5533f6299b67e486c16b839714aaf42161ffacbf859fd2e414580a00589d366f"
+    }
+  ],
+  "sections": [
+    {
+      "id": "decision",
+      "title": "Decision",
+      "summary": "The report starts with the decision and the evidence required to trust it."
+    }
+  ],
+  "components": [
+    {
+      "id": "cmp-tldr",
+      "type": "tldr",
+      "section_id": "decision",
+      "purpose": "State the answer first."
+    }
+  ],
+  "claims": [
+    {
+      "id": "claim-dual-artifacts",
+      "text": "The artifact has both human and agent-readable outputs.",
+      "status": "supported",
+      "evidence_ids": ["ev-contract"]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ev-contract",
+      "kind": "spec",
+      "summary": "The example input requires artifact.html and artifact.json.",
+      "source": "examples/executive-decision-brief/input.md"
+    }
+  ],
+  "verification": {
+    "status": "passed",
+    "checked_at": "2026-06-08",
+    "checks": [
+      {
+        "name": "schema",
+        "status": "passed",
+        "detail": "Validated against artifact-report.schema.json."
+      }
+    ]
+  },
+  "limitations": []
+}

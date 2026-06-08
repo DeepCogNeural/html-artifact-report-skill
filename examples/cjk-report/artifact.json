@@ -1,0 +1,109 @@
+{
+  "schema_version": "artifact-report.v1",
+  "artifact_id": "cjk-report",
+  "title": "中文报告示例",
+  "template_version": "desktop-report-template.v1",
+  "language": "zh",
+  "source_hashes": [
+    {
+      "path": "examples/cjk-report/input.md",
+      "sha256": "88090125f9dee9cea1c8cf6506305fd45a24d09a8e108956d5307b77ddfd82d1"
+    }
+  ],
+  "sections": [
+    {
+      "id": "decision",
+      "title": "结论",
+      "summary": "这个 skill 可以承载中文报告。"
+    },
+    {
+      "id": "evidence",
+      "title": "证据",
+      "summary": "字体、ID 和 checker 都不依赖英文正文。"
+    },
+    {
+      "id": "verification",
+      "title": "Verification",
+      "summary": "结构检查仍按同一套契约执行。"
+    },
+    {
+      "id": "next-action",
+      "title": "Next Action",
+      "summary": "复杂中文报告仍需要视觉验收。"
+    }
+  ],
+  "components": [
+    {
+      "id": "cmp-tldr",
+      "type": "tldr",
+      "section_id": "decision",
+      "purpose": "用中文给出第一屏结论。"
+    },
+    {
+      "id": "cmp-summary",
+      "type": "summary",
+      "section_id": "decision",
+      "purpose": "展示中文报告的关键状态。"
+    },
+    {
+      "id": "cmp-flow",
+      "type": "diagram",
+      "section_id": "decision",
+      "purpose": "展示中文输入到双产物的流程。"
+    },
+    {
+      "id": "cmp-evidence-table",
+      "type": "table",
+      "section_id": "evidence",
+      "purpose": "汇总中文支持证据。"
+    },
+    {
+      "id": "cmp-raw-evidence",
+      "type": "folded_evidence",
+      "section_id": "evidence",
+      "purpose": "折叠原始中文证据。"
+    },
+    {
+      "id": "cmp-commands",
+      "type": "command",
+      "section_id": "verification",
+      "purpose": "提供复查命令。"
+    },
+    {
+      "id": "cmp-limitations",
+      "type": "card",
+      "section_id": "next-action",
+      "purpose": "说明剩余限制。"
+    }
+  ],
+  "claims": [
+    {
+      "id": "claim-cjk-supported",
+      "text": "The canonical profile can carry a CJK report while preserving stable machine IDs.",
+      "status": "supported",
+      "evidence_ids": ["ev-cjk-input"]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ev-cjk-input",
+      "kind": "source",
+      "summary": "The source is Chinese and uses the same artifact contract.",
+      "source": "examples/cjk-report/input.md"
+    }
+  ],
+  "verification": {
+    "status": "passed",
+    "checked_at": "2026-06-08",
+    "checks": [
+      {
+        "name": "contract check",
+        "status": "passed",
+        "detail": "Expected to pass scripts/check_examples.py."
+      }
+    ]
+  },
+  "limitations": [
+    "Static checks do not prove every Chinese line break is visually ideal."
+  ]
+}
