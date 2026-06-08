@@ -39,9 +39,10 @@ Resolve paths relative to this `SKILL.md`.
    - limitations
 3. Create `artifact.json` from the outline.
 4. Create `artifact.html` from `templates/desktop-report-template.html`.
-5. Ensure every JSON `sections[].id` exists as an HTML `data-section-id`.
-6. Ensure every JSON `components[].id` exists as an HTML `data-component-id`.
-7. Run:
+5. Ensure HTML and JSON section IDs match exactly, with no duplicates or unregistered extras.
+6. Ensure HTML and JSON component IDs match exactly, with no duplicates or unregistered extras.
+7. Hash every local evidence file listed in `artifact.json`.
+8. Run:
 
 ```bash
 python3 scripts/check_html_artifact.py artifact.html
@@ -104,4 +105,3 @@ Required top-level fields:
 - Do not add a sticky sidebar, a default table of contents, or tab-hidden main content.
 - Do not use decorative emoji as structural icons.
 - Do not use purple gradients, neon colors, GitHub-dark `#0D1117`, or generic SaaS dashboard shells.
-

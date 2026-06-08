@@ -1,103 +1,176 @@
 # HTML Artifact Report Skill
 
-An agent skill for producing warm editorial single-file HTML reports with a paired machine-readable JSON manifest.
+[![CI](https://github.com/DeepCogNeural/html-artifact-report-skill/actions/workflows/ci.yml/badge.svg)](https://github.com/DeepCogNeural/html-artifact-report-skill/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Contract](https://img.shields.io/badge/contract-artifact--report.v1-D97757.svg)](SPEC.md)
 
-The skill has one job: turn substantial analysis into two aligned artifacts:
+Turn serious agent work into two aligned artifacts:
 
-- `artifact.html` for humans.
-- `artifact.json` for agents, automation, review, and regression checks.
+- `artifact.html` — a warm editorial report that humans can actually read.
+- `artifact.json` — a machine-readable manifest that agents can audit, diff, and reuse.
 
-It is not a web app, a template marketplace, a Markdown converter, or a document pipeline.
+Markdown is a good source format. HTML is a better reading surface. JSON is a better agent interface. This skill keeps all three in their proper jobs.
 
-## Contract in 60 seconds
+![HTML Artifact Report preview](docs/assets/executive-brief-preview.png)
 
-Every completed report must include:
+## Why this exists
 
-1. A standalone `artifact.html` file.
-2. A paired `artifact.json` file that validates against `contract/artifact-report.schema.json`.
-3. Matching IDs between both files:
-   - HTML sections use `data-section-id`.
-   - HTML components use `data-component-id`.
-   - JSON `sections[].id` and `components[].id` must exist in the HTML.
-4. A verification record in JSON and a reader-facing verification section in HTML.
+Most agent reports fail in one of two ways:
 
-The JSON file is a manifest, not a second prose report. It records the report outline, evidence, claims, limitations, source hashes, and verification status so another agent can audit or reuse the artifact without scraping the page.
+1. They are Markdown walls that are easy for agents to emit but tiring for people to read.
+2. They are pretty HTML pages that humans like, but future agents must scrape and guess.
+
+This repository solves that with a strict dual-output contract. The human report and the agent manifest must describe the same sections, components, claims, evidence, source hashes, verification status, and limitations.
 
 ## Install
-
-Copy or symlink this repository into your agent skill directory, or reference `SKILL.md` from your agent workflow.
 
 For Codex-style local skills:
 
 ```bash
-ln -s /path/to/html-artifact-report-skill ~/.codex/skills/html-artifact-report
+git clone https://github.com/DeepCogNeural/html-artifact-report-skill.git
+ln -s "$PWD/html-artifact-report-skill" ~/.codex/skills/html-artifact-report
 ```
 
-## Use
+For any coding agent, point it at `SKILL.md` and ask it to read `SPEC.md` before writing an artifact.
 
-Ask your agent to use the skill when a response would be better as a durable report:
+## Agent quickstart
+
+Copy this into your coding agent:
 
 ```text
-Use html-artifact-report to create a decision report from notes.md.
-Write both artifact.html and artifact.json, then run scripts/check_examples.py.
+Use the html-artifact-report skill.
+
+Input: notes.md
+Output:
+- artifact.html
+- artifact.json
+
+Read SPEC.md, templates/desktop-report-template.html, components/report-components.md,
+and one complete example first. The JSON manifest is not a prose duplicate.
+It must validate against contract/artifact-report.schema.json and align with
+the HTML data-section-id / data-component-id values.
+
+Run:
+python3 scripts/check_html_artifact.py artifact.html
+python3 scripts/check_artifact_json.py artifact.json --html artifact.html
 ```
 
-For one artifact:
+## Human quickstart
 
-```bash
-python3 scripts/check_html_artifact.py examples/executive-decision-brief/artifact.html
-python3 scripts/check_artifact_json.py examples/executive-decision-brief/artifact.json --html examples/executive-decision-brief/artifact.html
-```
+Inspect the examples:
 
-For all examples:
+| Example | What it demonstrates |
+| --- | --- |
+| [`executive-decision-brief`](examples/executive-decision-brief/) | A compact decision memo with a first-screen answer |
+| [`data-heavy-report`](examples/data-heavy-report/) | Tables folded behind evidence while summary stays readable |
+| [`technical-design-review`](examples/technical-design-review/) | HTML/JSON ID alignment for a design review |
+| [`cjk-report`](examples/cjk-report/) | CJK prose with stable machine IDs |
+
+Run the checks:
 
 ```bash
 python3 scripts/check_examples.py
 python3 -m unittest discover -s tests
 ```
 
-## Design position
+## The contract
 
-This skill defaults to one canonical profile: warm editorial single-file HTML reports.
+Every completed report must include:
 
-The report should be answer-first, readable, and evidence-aware:
+1. A standalone `artifact.html`.
+2. A paired `artifact.json`.
+3. `<meta name="artifact-contract" content="artifact-report.v1">` in HTML.
+4. Matching IDs:
+   - HTML sections use `data-section-id`.
+   - HTML components use `data-component-id`.
+   - JSON `sections[].id` and `components[].id` must match the HTML exactly.
+5. Source hashes for local evidence files.
+6. Verification and limitations in both the manifest and the visible report.
 
+The manifest is for agents. It records structure and evidence, not another long essay.
+
+## What the checker enforces
+
+- Canonical warm editorial profile: single 1180px column, serif headings, warm palette.
+- Answer-first TL;DR and summary cards.
+- Folded raw evidence.
+- Verification and limitations.
+- No default sidebar TOC, tab-hidden main content, purple gradients, GitHub-dark shell, or generic AI slop.
+- JSON schema validity.
+- Duplicate ID detection on both HTML and JSON.
+- Bidirectional HTML/JSON section and component alignment.
+- Source-hash checks for local evidence files.
+- Negative fixtures that prove bad/slop and drift cases fail.
+
+## What this is not
+
+- Not a website builder.
+- Not a Markdown-to-HTML converter.
+- Not a GUI app.
+- Not a template marketplace.
+- Not a replacement for human visual review before publishing.
+
+## Agent discoverability
+
+This repo includes:
+
+- [`AGENTS.md`](AGENTS.md) for coding agents entering the repository.
+- [`llms.txt`](llms.txt) as a concise agent-readable map.
+- Stable examples under `examples/*/artifact.{html,json}`.
+- A small test surface with no runtime package dependency.
+
+Recommended GitHub topics:
+
+```text
+ai-agents, agent-skill, codex, llm, html-report, json-schema,
+markdown, documentation, evidence, artifact
+```
+
+## Design principles
+
+The visual profile is intentionally narrow:
+
+- Warm editorial single-file HTML.
 - One wide main column.
-- Warm low-saturation palette.
-- Serif editorial headings.
-- Structured summary cards.
-- Real visuals or tables when they help.
-- Folded raw evidence for long details.
-- A clear verification and limitations section.
+- Human first-screen answer.
+- Evidence summarized before raw detail.
+- Raw material folded, not hidden.
+- Machine-readable manifest instead of HTML scraping.
 
-Avoid generic AI-looking output: purple gradients, decorative emoji as structure, dark blue SaaS shells, sticky sidebars, hidden tab content, and large raw tables dumped into the main flow.
+The point is not to make every possible page. The point is to make one kind of report reliably excellent.
+
+## Prior art
+
+This is a clean-room implementation inspired by:
+
+- [`haidang1810/md2html`](https://github.com/haidang1810/md2html) — semantic component mapping for agent-generated HTML.
+- [`alchaincyf/huashu-md-html`](https://github.com/alchaincyf/huashu-md-html) — Markdown as source, HTML as polished artifact, explicit anti-slop rules.
+- [`nexu-io/html-anything`](https://github.com/nexu-io/html-anything) — skill metadata, examples, and local agent artifact thinking.
+
+No third-party code, templates, screenshots, or assets are copied in v1. See [`ATTRIBUTIONS.md`](ATTRIBUTIONS.md).
 
 ## Repository layout
 
 ```text
 .
+├── AGENTS.md
 ├── SKILL.md
 ├── SPEC.md
+├── llms.txt
 ├── contract/
-│   ├── artifact-report.schema.json
-│   └── artifact-report.example.json
 ├── templates/
-│   └── desktop-report-template.html
 ├── components/
-│   └── report-components.md
 ├── references/
-│   ├── anti-slop.md
-│   └── style-principles.md
 ├── examples/
-│   └── */{input.md,artifact.html,artifact.json}
 ├── scripts/
-│   ├── check_html_artifact.py
-│   ├── check_artifact_json.py
-│   └── check_examples.py
 └── tests/
 ```
 
+## Contributing
+
+Keep the scope tight. v1 is a report skill, not an app. See [`CONTRIBUTING.md`](CONTRIBUTING.md).
+
 ## License
 
-MIT. Generated artifacts may include template HTML/CSS from this repository; see `LICENSE` and `ATTRIBUTIONS.md`.
+MIT. Generated artifacts may include template HTML/CSS from this repository; see [`LICENSE`](LICENSE) and [`SPEC.md`](SPEC.md#generated-artifact-license-note).
 
