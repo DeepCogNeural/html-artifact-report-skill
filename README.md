@@ -1,16 +1,18 @@
-# HTML Artifact Report Skill
+# HTML Report Skill for AI Agents
 
 [![CI](https://github.com/DeepCogNeural/html-artifact-report-skill/actions/workflows/ci.yml/badge.svg)](https://github.com/DeepCogNeural/html-artifact-report-skill/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Contract](https://img.shields.io/badge/contract-artifact--report.v1-D97757.svg)](SPEC.md)
 
-Readable reports for humans. Auditable manifests for agents.
+Readable HTML artifacts for humans. Auditable JSON manifests for agents.
 
-`html-artifact-report` is a portable agent skill for turning serious notes, reviews, research, and decision memos into two aligned files:
+`html-artifact-report` is a portable agent skill for Claude Code, Codex, Cursor, Gemini CLI, and DeepSeek-backed clients. It turns notes, Markdown, reviews, research, and decision memos into two aligned files:
 
 - `artifact.html`: a warm editorial single-file report that people can read.
 - `artifact.json`: a structured manifest that future agents can verify, diff, and reuse.
 - Checker-enforced alignment: HTML `data-section-id` / `data-component-id` values must match the JSON contract.
+
+People may search for this as an HTML report skill, HTML artifact skill, agent report generator, Markdown-to-HTML report, or JSON manifest report. The contract is the same.
 
 ![HTML Artifact Report Skill preview](docs/assets/hero-preview.png)
 
