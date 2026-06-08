@@ -1,5 +1,13 @@
 # HTML Artifact Report Skill クイックスタート
 
+<p>
+  <a href="../../README.md"><kbd>English</kbd></a>
+  <a href="../../README.zh-CN.md"><kbd>简体中文</kbd></a>
+  <a href="es.md"><kbd>Español</kbd></a>
+  <a href="ja.md"><kbd>日本語</kbd></a>
+  <a href="fr.md"><kbd>Français</kbd></a>
+</p>
+
 この skill は、agent が次の 2 つのファイルを同時に作るためのものです。
 
 - `artifact.html`: 人が読むための単一ファイル HTML レポート。
