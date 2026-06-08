@@ -5,10 +5,11 @@ This repository contains one agent skill: `html-artifact-report`.
 ## What to read first
 
 1. `README.md` for positioning and quickstart.
-2. `SPEC.md` for the artifact contract.
-3. `SKILL.md` for runtime instructions.
-4. `components/report-components.md` for allowed components.
-5. One complete example under `examples/`.
+2. `docs/agents.md` for cross-agent installation and first-run prompts.
+3. `SPEC.md` for the artifact contract.
+4. `SKILL.md` for runtime instructions.
+5. `components/report-components.md` for allowed components.
+6. One complete example under `examples/`.
 
 ## Core rule
 
@@ -42,4 +43,3 @@ python3 scripts/check_artifact_json.py artifact.json --html artifact.html
 - Keep examples real enough to validate the contract.
 - Add negative fixtures when tightening a checker.
 - If a local evidence file is cited in `artifact.json`, include it in `source_hashes`.
-
