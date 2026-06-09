@@ -24,8 +24,6 @@ It is a portable skill for Claude Code, Codex, Cursor, Gemini CLI, DeepSeek-back
 - `artifact.json`: a structured manifest that future agents can verify, diff, and reuse.
 - Checker-enforced alignment: HTML `data-section-id` / `data-component-id` values must match the JSON contract.
 
-Search terms this repo intentionally covers: HTML report skill, HTML artifact skill, agent report generator, Markdown-to-HTML report, JSON manifest report.
-
 ![HTML Artifact Report Skill preview](docs/assets/hero-preview.png)
 
 ## Why Agents Use It

@@ -18,8 +18,6 @@
 - `artifact.json`：结构化 manifest，方便 agent 复查、diff、复用。
 - checker 会强制 HTML 的 `data-section-id` / `data-component-id` 和 JSON contract 对齐。
 
-覆盖的搜索口径：HTML report skill、HTML artifact skill、agent report generator、Markdown-to-HTML report、JSON manifest report。
-
 ## 安装
 
 选择你正在用的 agent，只安装到那个客户端。
