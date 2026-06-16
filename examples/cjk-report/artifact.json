@@ -46,6 +46,12 @@
       "purpose": "展示中文报告的关键状态。"
     },
     {
+      "id": "cmp-decision-notes",
+      "type": "card",
+      "section_id": "decision",
+      "purpose": "用三张语言判断卡展示现在吸收、先别吸收和未来再议。"
+    },
+    {
       "id": "cmp-flow",
       "type": "diagram",
       "section_id": "decision",

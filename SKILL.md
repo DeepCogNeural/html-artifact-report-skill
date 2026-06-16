@@ -72,6 +72,7 @@ python3 -m unittest discover -s tests
 - Include:
   - answer-first TL;DR
   - summary cards
+  - decision note cards for `Adopt Now` / `Hold Back` / `Revisit Later` style buckets when the report needs plain-language judgment
   - real sections
   - at least one visual or table
   - folded evidence

@@ -43,7 +43,30 @@ Every major section should use `data-section-id`.
 </section>
 ```
 
-## 4. Flow Visual
+## 4. Decision Note Cards
+
+Use when the report needs three plain-language buckets such as "adopt now / hold back / revisit later". Keep the card title serif and the body copy relaxed; these cards should read like editorial judgment, not a dashboard metric wall.
+
+```html
+<div class="decision-grid" data-component-id="cmp-decision-notes">
+  <div class="note-card good">
+    <h3>Adopt Now</h3>
+    <p>Practices or changes that should become the default.</p>
+  </div>
+  <div class="note-card hot">
+    <h3>Hold Back</h3>
+    <p>Tempting options that would add risk before the evidence supports them.</p>
+  </div>
+  <div class="note-card">
+    <h3>Revisit Later</h3>
+    <p>Ideas worth tracking but not worth putting in the main path.</p>
+  </div>
+</div>
+```
+
+Use `.note-card.good` for green/olive adoption, `.note-card.hot` for clay warning, and plain `.note-card` for neutral future items.
+
+## 5. Flow Visual
 
 Use an inline SVG for simple flows. Use real labels. No decorative SVG characters or generic people illustrations.
 
@@ -55,7 +78,7 @@ Use an inline SVG for simple flows. Use real labels. No decorative SVG character
 </div>
 ```
 
-## 5. Evidence Table
+## 6. Evidence Table
 
 Short comparison tables may be visible. Long or raw tables must be folded in `<details>`.
 
@@ -68,7 +91,7 @@ Short comparison tables may be visible. Long or raw tables must be folded in `<d
 </div>
 ```
 
-## 6. Folded Evidence
+## 7. Folded Evidence
 
 Use for commands, logs, raw rows, long tables, and detailed source notes.
 
@@ -79,7 +102,7 @@ Use for commands, logs, raw rows, long tables, and detailed source notes.
 </details>
 ```
 
-## 7. Copyable Command
+## 8. Copyable Command
 
 Use for reusable commands.
 
@@ -91,7 +114,7 @@ Use for reusable commands.
 </details>
 ```
 
-## 8. Limitations
+## 9. Limitations
 
 Limitations must be explicit when evidence is incomplete.
 
@@ -105,10 +128,10 @@ Limitations must be explicit when evidence is incomplete.
 ## Component selection guide
 
 - decision, conclusion, recommendation -> TL;DR plus summary card
+- adopt now / hold back / revisit later -> decision note cards
 - ordered plan -> numbered sections
 - process, dependency, data flow -> inline SVG diagram
 - dense comparison -> table
 - raw logs, long data, command output -> folded evidence
 - reusable command -> copyable command
 - unknowns, caveats, freshness gaps -> limitations card
-
