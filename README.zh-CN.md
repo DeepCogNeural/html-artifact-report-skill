@@ -70,6 +70,7 @@ python3 scripts/check_artifact_json.py artifact.json --html artifact.html
 - HTML 和 JSON 的 section/component ID 必须完全对齐。
 - 本地 evidence 文件必须写入 `source_hashes`。
 - 首屏先给结论，长证据折叠。
+- section 默认像文章段落：小编号、短引导句、少边界感。
 - 需要做语言判断时，优先用三张 decision note cards 表达“现在吸收 / 先别吸收 / 未来再议”。
 
 更多 agent 安装方式见 [docs/agents.md](docs/agents.md)。

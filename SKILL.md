@@ -73,7 +73,7 @@ python3 -m unittest discover -s tests
   - answer-first TL;DR
   - summary cards
   - decision note cards for `Adopt Now` / `Hold Back` / `Revisit Later` style buckets when the report needs plain-language judgment
-  - real sections
+  - real sections with a small numbered pill, a short `.sec-intro`, and quiet article-like spacing
   - at least one visual or table
   - folded evidence
   - verification and limitations
@@ -99,6 +99,7 @@ Required top-level fields:
 ## Style rules
 
 - Be answer-first.
+- Keep the visible page like a language report, not a component audit. Put typography tokens, commands, raw tables, and implementation notes in folded evidence unless the report is specifically about those details.
 - Keep dense raw evidence folded behind `<details>`.
 - Do not invent data.
 - Label missing evidence clearly.

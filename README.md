@@ -148,6 +148,7 @@ sections, components, claims, evidence, verification, limitations
 
 - Canonical warm editorial profile: single 1180px column, serif headings, warm palette.
 - Answer-first TL;DR and summary cards.
+- Quiet article-like sections with a small numbered pill and short muted intro.
 - Editorial decision note cards for "Adopt Now / Hold Back / Revisit Later" style recommendations.
 - At least one meaningful visual or table.
 - Folded raw evidence, not giant default visible tables.

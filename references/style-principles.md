@@ -24,6 +24,8 @@ The default profile is a warm editorial single-file HTML report.
 - Answer first.
 - Summary cards second.
 - Use three decision note cards for plain-language buckets such as `Adopt Now`, `Hold Back`, and `Revisit Later` when the report needs editorial judgment.
+- Major sections should feel like article sections, not dashboard panels: small numbered pill, serif H2, short muted `.sec-intro`, quiet spacing, and an optional thin rule before the section body.
+- Keep visible copy human-facing. Typography tokens, CSS names, command lines, hashes, and implementation details belong in folded evidence unless the report is specifically about implementation.
 - Evidence follows the decision.
 - Raw material is folded.
 - Verification and limitations are visible near the end.

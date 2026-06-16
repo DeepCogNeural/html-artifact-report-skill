@@ -29,7 +29,7 @@ Use for the top four signals a reader needs.
 
 ## 3. Numbered Section Header
 
-Every major section should use `data-section-id`.
+Every major section should use `data-section-id`. Keep the heading compact: small numbered pill, H2, and a short muted intro below. Avoid heavy borders or large square number badges unless the report explicitly needs a dashboard look.
 
 ```html
 <section data-section-id="decision">
@@ -37,9 +37,9 @@ Every major section should use `data-section-id`.
     <div class="num">01</div>
     <div>
       <h2>Decision</h2>
-      <p>One sentence explaining what this section proves.</p>
     </div>
   </div>
+  <p class="sec-intro">One sentence explaining what this section proves.</p>
 </section>
 ```
 

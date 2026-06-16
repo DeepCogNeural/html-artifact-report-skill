@@ -40,7 +40,7 @@
     color:var(--gray-500);
     font-family:var(--mono);
     font-size:12px;
-    letter-spacing:.08em;
+    letter-spacing:0;
     text-transform:uppercase;
     margin-bottom:12px;
   }
@@ -89,32 +89,62 @@
     font-family:var(--sans);
     font-size:11px;
     font-weight:700;
-    letter-spacing:.06em;
+    letter-spacing:0;
     text-transform:uppercase;
   }
   .v { color:var(--slate); font-size:18px; font-weight:700; margin-top:6px; }
   section {
-    border-top:1.5px solid var(--gray-300);
-    margin-top:52px;
-    padding-top:28px;
+    margin-bottom:64px;
+    scroll-margin-top:24px;
   }
+  section:last-of-type { margin-bottom:0; }
   .sec-head {
-    display:grid;
-    grid-template-columns:48px minmax(0,1fr);
+    display:flex;
+    align-items:baseline;
     gap:14px;
-    margin-bottom:18px;
+    margin-bottom:8px;
   }
   .num {
-    align-items:center;
     background:var(--oat);
-    border-radius:10px;
+    border-radius:8px;
     color:var(--slate);
-    display:flex;
     font-family:var(--mono);
-    font-weight:700;
-    height:38px;
-    justify-content:center;
-    width:42px;
+    font-size:12px;
+    padding:3px 9px;
+  }
+  .sec-intro {
+    color:var(--gray-500);
+    font-size:14.5px;
+    margin:0 0 26px;
+    max-width:720px;
+  }
+  hr.rule {
+    border:0;
+    border-top:var(--border);
+    margin:0 0 24px;
+  }
+  .highlights {
+    list-style:none;
+    margin:0 0 22px;
+    padding:0;
+  }
+  .highlights li {
+    position:relative;
+    padding:0 0 15px 26px;
+  }
+  .highlights li::before {
+    background:var(--clay);
+    border-radius:2px;
+    content:"";
+    height:7px;
+    left:6px;
+    position:absolute;
+    top:8px;
+    width:7px;
+  }
+  .highlights strong {
+    color:var(--slate);
+    font-weight:650;
   }
   .diagram {
     background:var(--white);
@@ -189,7 +219,9 @@
     </div>
 
     <section data-section-id="decision">
-      <div class="sec-head"><div class="num">01</div><div><h2>Decision</h2><p>One-sentence section purpose.</p></div></div>
+      <div class="sec-head"><div class="num">01</div><div><h2>Decision</h2></div></div>
+      <p class="sec-intro">One-sentence section purpose. Keep the reader-facing line plain; put implementation details later.</p>
+      <hr class="rule">
       <div class="decision-grid" data-component-id="cmp-decision-notes">
         <div class="note-card good">
           <h3>Adopt Now</h3>
@@ -223,7 +255,8 @@
     </section>
 
     <section data-section-id="evidence">
-      <div class="sec-head"><div class="num">02</div><div><h2>Evidence</h2><p>Summarize evidence before raw details.</p></div></div>
+      <div class="sec-head"><div class="num">02</div><div><h2>Evidence</h2></div></div>
+      <p class="sec-intro">Summarize evidence before raw details.</p>
       <details data-component-id="cmp-raw-evidence">
         <summary>Raw table or long evidence</summary>
         <div class="table-wrap" data-component-id="cmp-evidence-table">
@@ -236,7 +269,8 @@
     </section>
 
     <section data-section-id="verification">
-      <div class="sec-head"><div class="num">03</div><div><h2>Verification</h2><p>Commands, freshness, limits, and residual uncertainty.</p></div></div>
+      <div class="sec-head"><div class="num">03</div><div><h2>Verification</h2></div></div>
+      <p class="sec-intro">Commands, freshness, limits, and residual uncertainty.</p>
       <details data-component-id="cmp-commands">
         <summary>Reusable commands</summary>
         <button data-copy="#commands">Copy</button>
@@ -246,7 +280,8 @@ python3 scripts/check_artifact_json.py artifact.json --html artifact.html</pre>
     </section>
 
     <section data-section-id="next-action">
-      <div class="sec-head"><div class="num">04</div><div><h2>Next Action</h2><p>State exactly what should happen after the reader closes this report.</p></div></div>
+      <div class="sec-head"><div class="num">04</div><div><h2>Next Action</h2></div></div>
+      <p class="sec-intro">State exactly what should happen after the reader closes this report.</p>
       <div class="card" data-component-id="cmp-limitations"><div class="k">Limitations</div><p>Replace this with concrete limits, missing evidence, or known uncertainty.</p></div>
     </section>
   </main>
