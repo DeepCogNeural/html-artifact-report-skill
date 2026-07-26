@@ -4,12 +4,7 @@ This repository contains one agent skill: `html-artifact-report`.
 
 ## What to read first
 
-1. `README.md` for positioning and quickstart.
-2. `docs/agents.md` for cross-agent installation and first-run prompts.
-3. `SPEC.md` for the artifact contract.
-4. `SKILL.md` for runtime instructions.
-5. `components/report-components.md` for allowed components.
-6. One complete example under `examples/`.
+Contract: `SPEC.md`. Runtime: `SKILL.md`. Allowed components: `components/report-components.md`. Examples show the shape.
 
 ## Core rule
 
@@ -22,19 +17,7 @@ Do not create a pretty HTML report without a manifest. Do not create a manifest 
 
 ## Verification
 
-Run these before saying done:
-
-```bash
-python3 scripts/check_examples.py
-python3 -m unittest discover -s tests
-```
-
-For a single artifact:
-
-```bash
-python3 scripts/check_html_artifact.py artifact.html
-python3 scripts/check_artifact_json.py artifact.json --html artifact.html
-```
+Run the verification commands listed in `SKILL.md` before saying done.
 
 ## Editing rules
 
